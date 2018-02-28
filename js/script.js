@@ -6,11 +6,41 @@
 
 // Document Ready Function. All of your jQuery should go in here. 
 $( document ).ready(function() {
-  
-
-
-
+  $("button").click(function(){
+  	  console.log("hello")
+        var message=$("input").val();
+          var translate = sentenceToPigLatin(message);
+          $("#answer").text(translate);
+  });
 });
+
+function wordToPigLatin(word){
+  if ( word [0]=== "a" ||  word [0] === "e" || word [0] === "i" || word [0] === "o" ||  word [0] === "u"){
+     
+    return word + "ay";  
+  }
+  
+}
+
+// ["this", "is", "a", "test"]
+
+
+
+function sentenceToPigLatin(sentence){
+    var arrayOfWords = sentence.split(" ");
+    for(var i = 0; i < arrayOfWords.length; i++) {
+        var word = arrayOfWords[i];
+        var transformedWord = wordToPigLatin(word);
+        arrayOfWords[i] = transformedWord;
+    }
+    console.log(arrayOfWords);
+    return arrayOfWords;
+}
+      
+      
+
+
+console.log(sentenceToPigLatin("this is a test"))
 
 
 // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
